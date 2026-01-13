@@ -1,0 +1,23 @@
+{
+	"name": "docker-frontend-dev",
+	"dockerComposeFile": [
+		"../docker-compose.yml"
+	],
+	"service": "frontend-dev",
+	"workspaceFolder": "/app",
+	"remoteUser": "node",
+	"initializeCommand": "docker network inspect docker-dev_default > NUL 2>&1 || docker network create docker-dev_default",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+				"esbenp.prettier-vscode",
+				"formulahendry.auto-close-tag",
+				"formulahendry.auto-rename-tag",
+				"christian-kohler.path-intellisense",
+				"eamodio.gitlens",
+				"mhutchie.git-graph"
+			]
+		}
+	}
+}

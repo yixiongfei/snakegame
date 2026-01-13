@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    /* 基础 */
+    "target": "ES2020",
+    "module": "CommonJS",
+    "lib": ["ES2020"],
+    "rootDir": "src",
+    "outDir": "dist",
+
+    /* Node 运行环境 */
+    "moduleResolution": "node",
+    "types": ["node"],
+    "esModuleInterop": true,
+
+    /* 严格性 */
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* 开发体验 */
+    "sourceMap": true,
+    "resolveJsonModule": true,
+
+    /* 编译行为 */
+    "noEmitOnError": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}

@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  frontend-dev:
+    build:
+      context: ../
+      dockerfile: docker-frontend-dev/Dockerfile
+    image: snakegame
+    container_name: snakegame
+    ports:
+      - "3001:3001"
+    volumes:
+      - ../workspace/rag-dev-front:/app
+      - /app/node_modules
+    working_dir: /app
+    command: sh -c "npm install && npm run dev"
+    networks:
+      - default
+
+networks:
+  default:
+    name: docker-dev_default
+    external: true

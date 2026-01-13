@@ -1,0 +1,47 @@
+.card {
+    width: 440px;
+    margin: 40px auto;
+    padding: 16px;
+    background: #020617;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    color: #e5e7eb;
+    text-align: center;
+}
+
+.title {
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.info button {
+    background: #3b82f6;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.info button:hover {
+    background: #2563eb;
+}
+
+.canvas {
+    border-radius: 12px;
+    background: #020617;
+    border: 1px solid #1e293b;
+}
+
+.tip {
+    margin-top: 8px;
+    font-size: 12px;
+    opacity: 0.7;
+}
