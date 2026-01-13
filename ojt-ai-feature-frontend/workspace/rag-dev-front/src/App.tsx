@@ -87,7 +87,7 @@ export default function App() {
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === 'Escape') {
-                setIsMin(true);
+                setIsMin(prev => !prev);
                 setShowLeaderboard(false);
             }
         };
