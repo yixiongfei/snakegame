@@ -82,6 +82,23 @@ export default function App() {
     const [isMin, setIsMin] = useState(true);
     const [scale, setScale] = useState(0.6);
     const [showLeaderboard, setShowLeaderboard] = useState(false);
+    const [onlineCount, setOnlineCount] = useState(0);
+
+    // 获取在线人数
+    useEffect(() => {
+        const fetchOnline = async () => {
+            try {
+                const res = await fetch('/api/online-count');
+                const data = await res.json();
+                setOnlineCount(data.count);
+            } catch (e) {
+                console.error("Failed to fetch online count", e);
+            }
+        };
+        fetchOnline();
+        const timer = setInterval(fetchOnline, 15000);
+        return () => clearInterval(timer);
+    }, []);
 
     // 添加全局 ESC 键监听
     useEffect(() => {
@@ -165,6 +182,9 @@ export default function App() {
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                         <span style={{ color: '#48bb78' }}>●</span> Engine Running
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '5px', marginLeft: '10px' }}>
+                        <span style={{ color: '#3182ce' }}>👥</span> Online: {onlineCount}
                     </div>
                 </div>
                 <div>v4.26.1</div>

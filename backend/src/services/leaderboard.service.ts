@@ -16,19 +16,17 @@ export async function getTop(limit = 10) {
             ? limit
             : 10;
 
+    // 修改 SQL 逻辑：按名字分组，取每组最高分，然后排序
     const [rows] = await pool.execute(
         `
-        SELECT name, score
+        SELECT name, MAX(score) as score
         FROM leaderboard
+        GROUP BY name
         ORDER BY
-            is_pinned DESC,
-            score DESC,
-            created_at ASC
+            MAX(score) DESC
         LIMIT ${safeLimit}
         `
     );
 
     return rows;
 }
-
-
