@@ -7,6 +7,7 @@ export default defineConfig({
     port: 3001,
     host: true,
     strictPort: true, // 被占用就直接报错
+    allowedHosts: true,
     proxy: {
       '/api': {
         target: 'http://localhost:3000',

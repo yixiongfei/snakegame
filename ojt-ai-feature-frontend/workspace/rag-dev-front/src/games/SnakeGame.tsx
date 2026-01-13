@@ -67,13 +67,28 @@ export default function SnakeGame() {
     /* ===== 键盘输入 ===== */
     useEffect(() => {
         const onKeyDown = (e: KeyboardEvent) => {
+            // 空格键暂停/恢复
+            if (e.key === ' ') {
+                e.preventDefault();
+                setRunning(prev => !prev);
+                return;
+            }
+
             if (!running) return;
 
             const map: Record<string, Point> = {
                 ArrowUp: { x: 0, y: -1 },
+                w: { x: 0, y: -1 },
+                W: { x: 0, y: -1 },
                 ArrowDown: { x: 0, y: 1 },
+                s: { x: 0, y: 1 },
+                S: { x: 0, y: 1 },
                 ArrowLeft: { x: -1, y: 0 },
+                a: { x: -1, y: 0 },
+                A: { x: -1, y: 0 },
                 ArrowRight: { x: 1, y: 0 },
+                d: { x: 1, y: 0 },
+                D: { x: 1, y: 0 },
             };
 
             const next = map[e.key];
@@ -218,7 +233,7 @@ export default function SnakeGame() {
             />
 
             <div className={styles.tip}>
-                ↑ ↓ ← → キーで操作
+                ↑ ↓ ← → / WASD 操作 | Space 暂停
             </div>
         </div>
     );
