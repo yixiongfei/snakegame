@@ -83,6 +83,18 @@ export default function App() {
     const [scale, setScale] = useState(0.6);
     const [showLeaderboard, setShowLeaderboard] = useState(false);
 
+    // 添加全局 ESC 键监听
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                setIsMin(true);
+                setShowLeaderboard(false);
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, []);
+
     return (
         <div className={styles.appWrapper} style={{ 
             height: '100vh', 
